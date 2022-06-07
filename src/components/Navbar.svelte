@@ -35,8 +35,7 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: 1.4rem;
-			background: #333;
-			margin-bottom: 30px;
+			background: linear-gradient(to right, rgb(88, 0, 88), rgba(224, 191, 240, 0.863));
 		}
 	}
 	@media (min-width: 768px) {

@@ -16,6 +16,8 @@
 	} from 'firebase/firestore';
 	import Profile from '../components/Profile.svelte';
 	import Dialog from '../components/Dialog.svelte';
+	import { goto } from '$app/navigation';
+	import { browser } from '$app/env';
 
 	let title = '';
 	let url = '';
@@ -79,6 +81,10 @@
 					console.log(error);
 				}
 			);
+		} else {
+			if (browser) {
+				goto('/login');
+			}
 		}
 	});
 
@@ -174,7 +180,6 @@
 
 	.btn {
 		margin-top: 20px;
-
 		color: #fff;
 		border: none;
 		padding: 15px;
