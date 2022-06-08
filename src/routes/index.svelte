@@ -91,11 +91,11 @@
 					console.log(error);
 				}
 			);
-		} /* else {
+		} else {
 			if (browser) {
 				goto('/login');
 			}
-		} */
+		}
 	});
 
 	const openAddForm = async () => {
