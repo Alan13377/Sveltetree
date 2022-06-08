@@ -18,4 +18,15 @@
 	export let uid;
 </script>
 
-<PublicProfile {username} {uid} />
+<div class="contenido__principal">
+	<PublicProfile {username} {uid} />
+</div>
+
+<style>
+	.contenido__principal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

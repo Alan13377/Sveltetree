@@ -21,18 +21,27 @@
 
 	let title = '';
 	let url = '';
+	let icon = '';
 	let links = [];
 	let form = false;
 	let currentId = '';
+	let regex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 
-	const handleSubmit = async () => {
-		try {
-			form ? addLink() : updateLink();
-		} catch (error) {
-			console.error(error);
+	///Formulario
+
+	const handleSubmit = () => {
+		if (title == '' || icon == '' || (url == '' && !url.match(regex))) {
+			alert('Todos los campos son requeridos');
+		} else {
+			try {
+				form ? addLink() : updateLink();
+			} catch (error) {
+				console.error(error);
+			}
 		}
 		title = '';
 		url = '';
+		icon = '';
 	};
 
 	const addLink = async () => {
@@ -40,6 +49,7 @@
 			await addDoc(collection(db, 'links'), {
 				title: title,
 				url: url,
+				icon: icon,
 				uid: $user.uid
 			});
 		} catch (error) {
@@ -81,11 +91,11 @@
 					console.log(error);
 				}
 			);
-		} else {
+		} /* else {
 			if (browser) {
 				goto('/login');
 			}
-		}
+		} */
 	});
 
 	const openAddForm = async () => {
@@ -107,13 +117,38 @@
 			<form on:submit|preventDefault={handleSubmit}>
 				<div class="campo">
 					<label class="campo__label" for="title">Titulo</label>
-					<input class="campo__field" bind:value={title} type="text" name="title" id="title" />
+					<input
+						class="campo__field"
+						bind:value={title}
+						type="text"
+						name="title"
+						id="title"
+						placeholder="Titulo"
+					/>
 				</div>
 				<div class="campo">
 					<label class="campo__label" for="url">Url</label>
-					<input class="campo__field" bind:value={url} type="text" name="url" id="url" />
+					<input
+						class="campo__field"
+						bind:value={url}
+						type="text"
+						name="url"
+						id="url"
+						placeholder="url"
+					/>
 				</div>
-				<button>Guardar</button>
+				<div class="campo">
+					<label class="campo__label" for="icon">Icono</label>
+					<input
+						class="campo__field"
+						bind:value={icon}
+						type="text"
+						name="icon"
+						id="icon"
+						placeholder="fa-tiktok"
+					/>
+				</div>
+				<button class="btn btn-agregar">Guardar</button>
 			</form>
 		</div>
 	</Dialog>
@@ -152,7 +187,7 @@
 		align-items: center;
 	}
 	.contenido__profile {
-		margin-bottom: 20px;
+		margin: 0 auto;
 		height: auto;
 	}
 
@@ -168,9 +203,12 @@
 		flex: 0 0 9rem;
 		text-align: right;
 		padding-right: 2rem;
+		font-weight: bold;
+		font-size: 15px;
 	}
 
 	.campo__field {
+		display: block;
 		width: 100%;
 		padding: 15px;
 		flex: 1;
@@ -187,6 +225,12 @@
 		cursor: pointer;
 		font-size: 15px;
 		font-weight: bold;
+	}
+
+	@media (max-width: 768px) {
+		.btn {
+			width: 100%;
+		}
 	}
 	.btn-agregar {
 		background-color: #0003b8;

@@ -41,7 +41,50 @@
 		<p>{profi.username}</p>
 	{/each}
 </div>
-{#each Links as link}
-	<p>{link.title}</p>
-	<p>{link.url}</p>
-{/each}
+<div class="links__container">
+	{#each Links as link}
+		<div class="link__info">
+			<div class="link__icon">
+				<i class={`fa-brands ${link.icon}`} />
+			</div>
+			<a class="link" target="blank" href={link.url}>
+				{link.title}
+			</a>
+		</div>
+	{/each}
+</div>
+
+<style>
+	.links__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 100%;
+	}
+
+	.link__info {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		align-items: center;
+		cursor: pointer;
+		text-align: center;
+		border: 1px solid #ccc;
+		border-radius: 30px;
+		background-color: #6d0202;
+		width: 100%;
+		padding: 30px;
+		margin: 10px 90px;
+	}
+
+	.link {
+		color: #fff;
+		font-weight: bolder;
+		font-size: 20px;
+	}
+	.link__icon {
+		font-size: 30px;
+		color: #fff;
+	}
+</style>

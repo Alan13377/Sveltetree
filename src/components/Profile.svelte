@@ -3,11 +3,12 @@
 	import { auth } from '$lib/firebase';
 	import { onAuthStateChanged } from 'firebase/auth';
 	import { user, isLoggedIn } from '../stores/store';
+	import { colorStore } from '../stores/colorStore';
 
 	import { collection, onSnapshot, query, where } from 'firebase/firestore';
 
 	let profile = [];
-	let color = '';
+
 	//Obtener datos
 	onAuthStateChanged(auth, async (authUser) => {
 		$user = authUser;
@@ -29,19 +30,25 @@
 </script>
 
 {#if $isLoggedIn}
-	{#each profile as profi}
-		<img src={profi.picture} alt={profi.name} />
-		<p>Username:{profi.username}</p>
-		<p>Ver pagina: <a target="blank" href={`/user/${profi.username}-${profi.uid}`}>pagina</a></p>
-	{/each}
+	<div class="profile">
+		{#each profile as profi}
+			<img src={profi.picture} alt={profi.name} />
+			<p>Username: {profi.username}</p>
+			<p>Ver pagina: <a target="blank" href={`/user/${profi.username}-${profi.uid}`}>click</a></p>
+		{/each}
+	</div>
 {/if}
 
 <style>
-	:root {
-		--theme-color: {color};
+	.profile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 50px;
 	}
-	p {
-		/**Background radial-gradient*/
-		background: radial-gradient(circle, var(--theme-color) 0%, rgba(175, 140, 189, 0.938) 100%);
+	a {
+		text-decoration: none;
+		color: aliceblue;
 	}
 </style>

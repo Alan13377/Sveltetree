@@ -20,7 +20,7 @@
 
 <style>
 	.navbar {
-		background: #333;
+		background: linear-gradient(to right, rgb(88, 0, 88), rgba(224, 191, 240, 0.863));
 		padding: 1rem;
 		margin-bottom: 30px;
 	}
@@ -35,7 +35,8 @@
 			justify-content: space-between;
 			align-items: center;
 			padding: 1.4rem;
-			background: linear-gradient(to right, rgb(88, 0, 88), rgba(224, 191, 240, 0.863));
+			background-color: #000000;
+			background-image: linear-gradient(147deg, #4d0049 0%, #04619f 74%);
 		}
 	}
 	@media (min-width: 768px) {

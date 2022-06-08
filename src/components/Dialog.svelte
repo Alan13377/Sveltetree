@@ -27,25 +27,27 @@
 		z-index: 40;
 		opacity: 0.9;
 		background-color: #ccc;
+		color: #000;
 	}
 	.modal {
+		position: relative;
 		/**bg-white text-lg font-bold rounded-md px-8 py-10 relative max-w-lg*/
 		background-color: #fff;
 		border-radius: 10px;
-		width: 50%;
-		padding-left: 8px;
+		width: 80%;
+		padding-left: 10px;
 		padding-right: 8px;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 	.modal-close {
 		position: absolute;
-		top: 1;
-		left: 3;
-		padding: 1rem;
+		top: 3;
+		right: 0;
+		padding: 20px;
 		cursor: pointer;
 		background-color: #fff;
 		border: none;
-		font-size: 15px;
+		font-size: 25px;
 	}
 </style>

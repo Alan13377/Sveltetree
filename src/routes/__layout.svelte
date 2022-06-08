@@ -3,6 +3,7 @@
 
 	import { auth } from '$lib/firebase';
 	import { user, isLoggedIn } from '../stores/store';
+	import { colorStore } from '../stores/colorStore';
 
 	import Navbar from '../components/Navbar.svelte';
 
@@ -24,9 +25,20 @@
 	});
 </script>
 
-<div style="--theme-color:{$colorStore}">
-	<Navbar {logout} />
-	<main class="container">
-		<slot />
-	</main>
-</div>
+<body>
+	<div>
+		<!-- style:background-color={$colorStore} -->
+		<Navbar {logout} />
+		<main class="container">
+			<slot />
+		</main>
+	</div>
+</body>
+
+<style>
+	body {
+		background-color: #000000;
+		background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+		color: #fff;
+	}
+</style>
