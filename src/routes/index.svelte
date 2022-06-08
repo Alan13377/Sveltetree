@@ -111,6 +111,9 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Dashboard</title>
+</svelte:head>
 {#if $isOverlayOpen}
 	<Dialog>
 		<div class="contenido__form">

@@ -50,9 +50,13 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Login</title>
+</svelte:head>
+
 <div class="login">
 	<div class="container-login">
-		<h1>Login</h1>
+		<h1 class="login__title">Login</h1>
 		<button class="login__google" on:click={login}>Iniciar Sesion con Google</button>
 	</div>
 </div>
@@ -83,6 +87,5 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		background-color: #f2f2f2;
 	}
 </style>

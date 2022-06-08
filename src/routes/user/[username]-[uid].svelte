@@ -18,6 +18,9 @@
 	export let uid;
 </script>
 
+<svelte:head>
+	<title>{username}</title>
+</svelte:head>
 <div class="contenido__principal">
 	<PublicProfile {username} {uid} />
 </div>

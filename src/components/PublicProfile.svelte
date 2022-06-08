@@ -70,12 +70,12 @@
 		align-items: center;
 		cursor: pointer;
 		text-align: center;
-		border: 1px solid #ccc;
 		border-radius: 30px;
 		background-color: #6d0202;
 		width: 100%;
 		padding: 30px;
 		margin: 10px 90px;
+		box-shadow: 0px 0px 10px #6d0202;
 	}
 
 	.link {

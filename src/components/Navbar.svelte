@@ -13,14 +13,14 @@
 			<a class="navegacion__enlace" href="/">Dashboard</a>
 			<a class="navegacion__enlace" href="/login" on:click={logout}>Salir</a>
 		{:else}
-			<a href="/login">Login</a>
+			<a class="navegacion__enlace" href="/login">Login</a>
 		{/if}
 	</nav>
 </div>
 
 <style>
 	.navbar {
-		background: linear-gradient(to right, rgb(88, 0, 88), rgba(224, 191, 240, 0.863));
+		background-image: linear-gradient(147deg, #4d0049 0%, #04619f 74%);
 		padding: 1rem;
 		margin-bottom: 30px;
 	}
